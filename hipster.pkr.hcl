@@ -64,7 +64,6 @@ locals {
     "svcadm restart ssh<enter><wait>"
   ]
   shutdown_command = "/usr/sbin/shutdown -g 0 -y -i 5"
-  iso_checksum_type = "sha256"
   disk_size = 51200
   boot_wait = "30s"
   headless = true
@@ -82,7 +81,6 @@ source "qemu" "oi-hipster" {
   disk_size = local.disk_size
   iso_checksum = var.iso_checksum
   iso_url =  local.iso_url
-  iso_checksum_type = local.iso_checksum_type
   shutdown_command = local.shutdown_command
   ssh_username = var.ssh_username
   ssh_password = var.ssh_password
@@ -110,7 +108,6 @@ source "virtualbox-iso" "oi-hipster" {
   disk_size = local.disk_size
   iso_checksum = var.iso_checksum
   iso_url = local.iso_url
-  iso_checksum_type = local.iso_checksum_type
   shutdown_command = local.shutdown_command
   ssh_username = var.ssh_username
   ssh_password = var.ssh_password
