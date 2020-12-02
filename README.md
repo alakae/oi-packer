@@ -26,17 +26,17 @@ packer build hipster.pkr.hcl
 
 ## Testing built boxes
 
-After packer has finished building the box, there will be a Vagrant box file created, e.g. **OI-hipster-20200504-virtualbox.box**.
+After packer has finished building the box, there will be a Vagrant box file created, e.g. **OI-hipster-20201031-virtualbox.box**.
 To test it, run following commands:
 
 ```bash
-vagrant box add -n hipster-test-virtualbox OI-hipster-20200504-virtualbox.box
+vagrant box add -n hipster-test-virtualbox OI-hipster-20201031-virtualbox.box
 vagrant init hipster-test-virtualbox
 vagrant up
 ```
 
 ```bash
-vagrant box add -n hipster-test-libvirt OI-hipster-20200504-libvirt.box
+vagrant box add -n hipster-test-libvirt OI-hipster-20201031-libvirt.box
 vagrant init hipster-test-libvirt
 vagrant up --provider=libvirt
 ```
@@ -45,9 +45,9 @@ vagrant up --provider=libvirt
 If you are logged in to vagrant cloud use this commands to upload the built boxes.
 ```bash
 REPO="openindiana/hipster"
-VERSION="2020.05.04"
-vagrant cloud publish -r $REPO $VERSION libvirt OI-hipster-20200504-libvirt.box
-vagrant cloud publish -r $REPO $VERSION virtualbox OI-hipster-20200504-virtualbox.box
+VERSION="2020.10.31"
+vagrant cloud publish -r $REPO $VERSION libvirt OI-hipster-20201031-libvirt.box
+vagrant cloud publish -r $REPO $VERSION virtualbox OI-hipster-20201031-virtualbox.box
 ```
 
 ## Future improvements:
